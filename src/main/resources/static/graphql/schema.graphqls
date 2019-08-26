@@ -1,0 +1,13 @@
+type Query {
+    # ユーザー取得
+    users(id: ID): [User]
+}
+
+type User {
+    # ユーザーID
+    id: ID!
+    # 名前
+    name: String!
+    # 所持ポイント
+    points: Int!
+}
