@@ -1,11 +1,22 @@
 # DB環境構築
 
-## 以下のコマンドを当ディレクトリ内で実行
+## MySQLサーバー作成
+
+以下のコマンドを当ディレクトリ内で実行
+
 ```
 docker-compose up -d
 ```
 
-## MySQLサーバー
+## マイグレーション
+
+Flywayを使ってDB内にデータを挿入します。
+
+```bash
+./gradlew -Dflyway.configFiles=db/migration/conf/flyway.conf flywayMigrate
+```
+
+# MySQLサーバーの環境情報
 
 | 項目名           | 接続情報       |
 |-----------------|---------------|
@@ -16,7 +27,8 @@ docker-compose up -d
 | SSL使用          | OFF           |
 | 自動構築スキーマ名 | service       |
 
-## phpMyAdmin
+# phpMyAdmin
+
 データベースクライアントツールは以下を使うことができます。
 
 [phpMyAdmin](http://localhost:55555)
