@@ -1,6 +1,8 @@
 type Query {
     # ユーザー取得
     users(id: ID): [User]
+    # 商品取得
+    products(categoryId: Long): [Product!]!
 }
 
 type User {
@@ -10,4 +12,15 @@ type User {
     name: String!
     # 所持ポイント
     points: Int!
+}
+
+type Product {
+    # 商品ID
+    id: ID!
+    # 商品名
+    name: String!
+    # 価格
+    price: Long!
+    # カテゴリーID
+    categoryId: Long!
 }
