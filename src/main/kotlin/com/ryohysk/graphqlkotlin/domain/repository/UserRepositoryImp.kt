@@ -1,14 +1,16 @@
 package com.ryohysk.graphqlkotlin.domain.repository
 
 import com.ryohysk.graphqlkotlin.domain.model.User
+import com.ryohysk.graphqlkotlin.infrastructure.dao.UserDao
+import com.ryohysk.graphqlkotlin.infrastructure.entity.UserEntity
 import org.springframework.stereotype.Repository
 
 @Repository
-class UserRepositoryImp : UserRepository {
-    override fun findUsers() = listOf(
-            User(1, "Mark"),
-            User(2, "Tom"),
-            User(3, "John"),
-            User(4, "Ryo")
+class UserRepositoryImp(private val userDao: UserDao) : UserRepository {
+    override fun findUsers(id: Long?) = userDao.findUsers(id).map { it.convertIntoUser() }
+
+    private fun UserEntity.convertIntoUser() = User(
+            id = id,
+            name = name
     )
 }

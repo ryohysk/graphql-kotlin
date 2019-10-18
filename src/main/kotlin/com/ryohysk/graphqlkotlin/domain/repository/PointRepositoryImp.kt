@@ -5,9 +5,9 @@ import org.springframework.stereotype.Repository
 @Repository
 class PointRepositoryImp : PointRepository {
     override fun findUsersPointsMap() = mapOf(
-            2 to 5000,
-            1 to 1000,
-            4 to 200,
-            3 to 0
+            2L to 5000,
+            1L to 1000,
+            4L to 200,
+            3L to 0
     )
 }

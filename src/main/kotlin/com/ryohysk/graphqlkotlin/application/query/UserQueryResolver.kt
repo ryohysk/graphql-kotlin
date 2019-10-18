@@ -6,5 +6,5 @@ import org.springframework.stereotype.Component
 
 @Component
 class UserQueryResolver(private val userService: UserService) : GraphQLQueryResolver {
-    fun users(id: Int?) = userService.findUsersBy(id)
+    fun users(id: Long?) = userService.findUsersBy(id)
 }

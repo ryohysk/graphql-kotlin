@@ -10,8 +10,8 @@ import java.util.concurrent.CompletableFuture
 
 @Component
 class UserResolver : GraphQLResolver<User> {
-    fun points(user: User, dfe: DataFetchingEnvironment): CompletableFuture<Int> {
-        return dfe.getContext<GraphQLContext>().dataLoaderRegistry.get()
-                .getDataLoader<User, Int>(DataLoaderKey.USERS_POINTS.name).load(user)
-    }
+//    fun points(user: User, dfe: DataFetchingEnvironment): CompletableFuture<Int> {
+//        return dfe.getContext<GraphQLContext>().dataLoaderRegistry.get()
+//                .getDataLoader<User, Int>(DataLoaderKey.USERS_POINTS.name).load(user)
+//    }
 }
