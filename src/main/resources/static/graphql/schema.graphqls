@@ -10,8 +10,6 @@ type User {
     id: ID!
     # 名前
     name: String!
-    # 所持ポイント
-    points: Int!
 }
 
 type Product {
