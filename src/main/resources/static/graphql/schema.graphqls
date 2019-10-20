@@ -10,6 +10,8 @@ type User {
     id: ID!
     # 名前
     name: String!
+    # お気に入りの商品
+    favoriteProducts: [Product!]!
 }
 
 type Product {
