@@ -4,4 +4,5 @@ import com.ryohysk.graphqlkotlin.domain.model.Product
 
 interface ProductRepository {
     fun findAll(categoryId: Long?): List<Product>
+    fun findFavoriteProducts(userIds: List<Long>): Map<Long, List<Product>>
 }
