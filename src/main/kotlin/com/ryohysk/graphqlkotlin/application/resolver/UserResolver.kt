@@ -16,8 +16,4 @@ class UserResolver : GraphQLResolver<User> {
         return dfe.getContext<GraphQLContext>().dataLoaderRegistry.get()
                 .getDataLoader<User, List<Product>>(DataLoaderKey.FAVORITE_PRODUCTS.name).load(user)
     }
-//    fun points(user: User, dfe: DataFetchingEnvironment): CompletableFuture<Int> {
-//        return dfe.getContext<GraphQLContext>().dataLoaderRegistry.get()
-//                .getDataLoader<User, Int>(DataLoaderKey.USERS_POINTS.name).load(user)
-//    }
 }
