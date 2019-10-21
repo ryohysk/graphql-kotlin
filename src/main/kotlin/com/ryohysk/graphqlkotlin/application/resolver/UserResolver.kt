@@ -11,6 +11,7 @@ import java.util.concurrent.CompletableFuture
 
 @Component
 class UserResolver : GraphQLResolver<User> {
+    @Suppress("unused")
     fun favoriteProducts(user: User, dfe: DataFetchingEnvironment): CompletableFuture<List<Product>> {
         return dfe.getContext<GraphQLContext>().dataLoaderRegistry.get()
                 .getDataLoader<User, List<Product>>(DataLoaderKey.FAVORITE_PRODUCTS.name).load(user)

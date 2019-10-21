@@ -6,5 +6,6 @@ import org.springframework.stereotype.Component
 
 @Component
 class ProductQueryResolver(private val productService: ProductService) : GraphQLQueryResolver {
+    @Suppress("unused")
     fun products(categoryId: Long?) = productService.findAll(categoryId)
 }
