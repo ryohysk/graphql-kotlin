@@ -5,6 +5,11 @@ type Query {
     products(categoryId: Long): [Product!]!
 }
 
+type Mutation {
+    # お気に入り商品を追加
+    addFavoriteProducts(input: AddFavoriteProductsInput): Boolean
+}
+
 type User {
     # ユーザーID
     id: ID!
@@ -23,4 +28,11 @@ type Product {
     price: Long!
     # カテゴリーID
     categoryId: Long!
+}
+
+input AddFavoriteProductsInput {
+    # ユーザーID
+    userId: Long!
+    # 商品ID
+    productIds: [Long!]!
 }

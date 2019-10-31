@@ -14,4 +14,8 @@ class ProductServiceImp(private val productRepository: ProductRepository) : Prod
         val favoriteProducts = productRepository.findFavoriteProducts(users.map { it.id })
         return users.parallelStream().map { favoriteProducts[it.id] ?: listOf() }.collect(Collectors.toList<List<Product>>())
     }
+
+    override fun addFavoriteProducts(userId: Long, productIds: List<Long>) {
+        productRepository.addFavoriteProducts(userId, productIds)
+    }
 }
