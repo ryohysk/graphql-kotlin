@@ -8,6 +8,8 @@ type Query {
 type Mutation {
     # お気に入り商品を追加
     addFavoriteProducts(input: AddFavoriteProductsInput): Boolean
+    # お気に入り商品を削除
+    removeFavoriteProducts(input: RemoveFavoriteProductsInput): Boolean
 }
 
 type User {
@@ -31,6 +33,13 @@ type Product {
 }
 
 input AddFavoriteProductsInput {
+    # ユーザーID
+    userId: Long!
+    # 商品ID
+    productIds: [Long!]!
+}
+
+input RemoveFavoriteProductsInput {
     # ユーザーID
     userId: Long!
     # 商品ID

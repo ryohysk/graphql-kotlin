@@ -17,4 +17,7 @@ interface ProductDao {
 
     @BatchInsert
     fun addFavoriteProducts(addFavoriteProductEntity: List<AddFavoriteProductEntity>): BatchResult<AddFavoriteProductEntity>
+
+    @BatchDelete
+    fun removeFavoriteProducts(addFavoriteProductEntity: List<RemoveFavoriteProductEntity>): BatchResult<RemoveFavoriteProductEntity>
 }
