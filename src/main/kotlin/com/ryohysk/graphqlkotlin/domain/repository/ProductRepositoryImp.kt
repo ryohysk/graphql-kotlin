@@ -22,6 +22,10 @@ class ProductRepositoryImp(private val productDao: ProductDao) : ProductReposito
         productDao.addFavoriteProducts(createAddFavoriteProductEntities(userId, productIds))
     }
 
+    override fun removeFavoriteProducts(userId: Long, productIds: List<Long>) {
+        productDao.removeFavoriteProducts(createRemoveFavoriteProductEntities(userId, productIds))
+    }
+
     private fun ProductEntity.convertIntoProduct() = Product(
             id = id,
             name = name,
@@ -38,6 +42,13 @@ class ProductRepositoryImp(private val productDao: ProductDao) : ProductReposito
 
     private fun createAddFavoriteProductEntities(userId: Long, productIds: List<Long>) = productIds.map {
         AddFavoriteProductEntity(
+                userId = userId,
+                productId = it
+        )
+    }
+
+    private fun createRemoveFavoriteProductEntities(userId: Long, productIds: List<Long>) = productIds.map {
+        RemoveFavoriteProductEntity(
                 userId = userId,
                 productId = it
         )

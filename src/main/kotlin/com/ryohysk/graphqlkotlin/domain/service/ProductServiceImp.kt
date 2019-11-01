@@ -18,4 +18,8 @@ class ProductServiceImp(private val productRepository: ProductRepository) : Prod
     override fun addFavoriteProducts(userId: Long, productIds: List<Long>) {
         productRepository.addFavoriteProducts(userId, productIds)
     }
+
+    override fun removeFavoriteProducts(userId: Long, productIds: List<Long>) {
+        productRepository.removeFavoriteProducts(userId, productIds)
+    }
 }
